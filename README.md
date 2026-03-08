@@ -145,3 +145,22 @@ Este proyecto demuestra habilidades clave para un **Data Analyst**:
 * control de calidad de datos
 * comunicación de insights
 
+## 📊 Dashboard del análisis financiero
+
+El dashboard resume los principales indicadores financieros de Adventure Works por territorio.
+
+Incluye métricas como:
+
+- Ingresos
+- Costos
+- Beneficio bruto
+- Margen de rentabilidad
+- ROI de marketing
+
+![Dashboard financiero](dashboard_preview.png)
+
+### 📄 Versión en PDF
+
+Puedes descargar el dashboard completo aquí:
+
+[Descargar dashboard](dashboard_financiero_adventureworks.pdf)
