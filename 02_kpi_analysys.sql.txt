@@ -1,0 +1,85 @@
+-- =====================================================
+-- 2. FINANCIAL KPIs BY TERRITORY
+-- Calculate revenue and costs per territory
+-- =====================================================
+
+SELECT
+    pais,
+    clave_territorio,
+    SUM(ingreso_total)::INTEGER AS ingresos,
+    SUM(costo_total)::INTEGER  AS costos
+
+FROM ventas_clean
+
+GROUP BY
+    pais,
+    clave_territorio
+
+ORDER BY ingresos DESC;
+
+
+
+-- =====================================================
+-- 3. ADD MARKETING CAMPAIGN COSTS
+-- =====================================================
+
+SELECT
+    v.pais,
+    v.clave_territorio,
+    
+    SUM(v.ingreso_total)::INTEGER AS ingresos,
+    SUM(v.costo_total)::INTEGER  AS costos,
+    
+    COALESCE(SUM(c.costo_campana)::INTEGER, 0) AS costo_campana
+
+FROM ventas_clean AS v
+
+LEFT JOIN campanas AS c
+    ON v.clave_territorio = c.clave_territorio::INTEGER
+
+GROUP BY
+    v.pais,
+    v.clave_territorio
+
+ORDER BY ingresos DESC;
+
+
+
+-- =====================================================
+-- 4. PROFITABILITY METRICS
+-- Gross profit, margin and ROI
+-- =====================================================
+
+SELECT
+    p.pais,
+    p.clave_territorio,
+
+    SUM(p.ingresos)::INTEGER AS ingresos,
+    SUM(p.costos)::INTEGER   AS costos,
+
+    COALESCE(SUM(c.costo_campana), 0)::INTEGER AS costo_campana,
+
+    -- Profit
+    SUM(p.ingresos) - SUM(p.costos) AS beneficio_bruto,
+
+    -- Profit margin
+    (SUM(p.ingresos) - SUM(p.costos)) * 100.0
+        / NULLIF(SUM(p.ingresos), 0) AS margen_pct,
+
+    -- ROI
+    (SUM(p.ingresos) - SUM(p.costos)) * 100.0
+        / NULLIF(SUM(c.costo_campana), 0) AS roi_pct
+
+FROM pais_ingreso_costo AS p
+
+LEFT JOIN pais_campanas AS c
+    ON p.clave_territorio = c.clave_territorio
+
+GROUP BY
+    p.pais,
+    p.clave_territorio
+
+ORDER BY
+    p.clave_territorio,
+    ingresos,
+    costos;
