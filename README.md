@@ -1,46 +1,147 @@
-## Análisis del desempeño financiero de Adventure Works con SQL ##
+# 📊 Análisis del desempeño financiero de Adventure Works con SQL
 
-💻Descripción breve del proyecto : Como analista en AdventureWorks. El director financiero quiere saber en qué mercados se generan más ingresos y rentabilidad para decidir dónde invertir el próximo dólar de marketing.
+## 📌 Descripción del proyecto
 
-Con datos de órdenes, productos, territorios y campañas, el objetivo es preparar un análisis que muestre #prioridades de mercado, optimización de presupuesto y rentabilidad.
+Este proyecto analiza el desempeño financiero de la empresa ficticia **Adventure Works** utilizando SQL.
 
-**⚖️Objetivos del proyecto**
+El objetivo del análisis es identificar **qué mercados generan más ingresos y rentabilidad**, permitiendo al equipo financiero tomar decisiones sobre **dónde invertir el próximo presupuesto de marketing**.
 
-- Navegar un esquema relacional y escribir JOINs para combinar tablas.
-- Extraer, filtrar y limpiar datos con SQL (manejo de NULLs, casting de tipos, estandarización de categorías).
-- Calcular indicadores financieros clave: ingresos, costos, beneficio bruto, margen y ROI.
-- Validar y controlar calidad (QA) con comprobaciones de totales y márgenes.
-- Redactar un informe ejecutivo con visualizaciones y el método Contexto → Hallazgo → Implicación (C→F→I).
+Para ello se utilizan datos de ventas, productos, territorios y campañas de marketing para calcular indicadores financieros clave como **ingresos, costos, beneficio bruto, margen y retorno de inversión (ROI)**.
 
-**📥Dataset del proyecto**
-Tablas Disponibles
-Un subconjunto del dataset de AdventureWorks. 
+---
 
-+ ventas_2017: transacciones de líneas de pedido (2017). Grano: una línea por producto y pedido.
-+ productos: catálogo con atributos, costo y precio unitario por ClaveProducto.
-+ productos_categorias: jerarquía categoría/subcategoría para enriquecer productos.
-+ clientes: maestro de clientes con segmento y ubicación.
-+ territorios: mapa de ClaveTerritorio → país y continente.
-+ campanas: gasto de marketing por territorio/campaña.
+# 🎯 Objetivos del análisis
 
-**📊Contexto del negocio**
-El director financiero busca responder dos preguntas centrales:
+El proyecto busca responder dos preguntas principales de negocio:
 
-+ ¿Cuánto estamos ganando por país?
-+ ¿Qué tan rentable es cada mercado considerando los gastos de marketing?
+1. **¿Cuánto estamos ganando por país?**
+2. **¿Qué tan rentable es cada mercado considerando el gasto en marketing?**
 
-**📉Proceso a grandes pasos**
+Para responder estas preguntas se realizaron los siguientes pasos:
 
-- Exploración del esquema: Diagrama de Entidades y definición de esquema de Tablas.
-- Extracción y limpieza desde los datos con consultas SQL y vistas .
-- Cálculo KPIs financieros ( Beneficio Bruto, Margen y ROI ).
-- Validación de resultados y QA.
-- Preparación de outputs y resumen ejecutivo en formato CFI en Google Drive.
+* Integración de múltiples tablas mediante **JOINs**
+* Limpieza y preparación de datos
+* Cálculo de **KPIs financieros**
+* Validación de calidad de datos
+* Análisis de rentabilidad por territorio
 
-**Resultados**
-## Dashboard
+---
 
-![Dashboar de AdventureWorks ](dashboard_preview.png)
+# 🗂 Dataset
 
-Puedes descargar el dashboard aquí:
-[Descargar dashboard](Dashboard-analisis_financiero_adventureworks.pdf)
+El análisis utiliza un subconjunto del dataset **AdventureWorks**.
+
+Tablas utilizadas:
+
+| Tabla                | Descripción                              |
+| -------------------- | ---------------------------------------- |
+| ventas_2017          | Transacciones de ventas por producto     |
+| productos            | Catálogo de productos con precio y costo |
+| productos_categorias | Jerarquía de categorías                  |
+| territorios          | Información geográfica                   |
+| campanas             | Gasto de marketing por territorio        |
+
+---
+
+# ⚙️ Proceso de análisis
+
+El análisis se realizó en tres etapas principales.
+
+### 1️⃣ Limpieza y preparación de datos
+
+Se integraron las tablas de ventas, productos y territorios para construir un dataset analítico que permite calcular ingresos y costos por pedido.
+
+El proceso incluye:
+
+* JOIN entre múltiples tablas
+* manejo de valores nulos con `COALESCE`
+* cálculo de ingresos y costos por línea de venta
+
+
+---
+
+### 2️⃣ Cálculo de KPIs financieros
+
+Se calcularon métricas financieras clave como:
+
+* ingresos totales
+* costos totales
+* beneficio bruto
+* margen de beneficio
+* retorno de inversión (ROI)
+
+Estas métricas se analizaron por **territorio y país**.
+
+---
+
+### 3️⃣ Validación de calidad de datos
+
+Para garantizar la calidad del análisis se implementaron verificaciones de datos:
+
+* detección de valores nulos
+* cantidades inválidas
+* precios incorrectos
+
+---
+
+# 📈 KPIs analizados
+
+El análisis se enfoca en las siguientes métricas:
+
+* **Ingresos**
+* **Costos**
+* **Beneficio bruto**
+* **Margen (%)**
+* **ROI de marketing**
+
+Estas métricas permiten comparar la rentabilidad entre mercados.
+
+---
+
+# 💡 Principales aplicaciones del análisis
+
+Este tipo de análisis permite:
+
+* identificar **mercados más rentables**
+* optimizar la **inversión en marketing**
+* detectar **ineficiencias en campañas**
+* mejorar la **toma de decisiones financieras**
+
+---
+
+# 🛠 Tecnologías utilizadas
+
+* **SQL**
+* JOINS
+* CTEs
+* Agregaciones
+* Cálculo de KPIs financieros
+* Validación de calidad de datos
+
+---
+
+# 📁 Estructura del repositorio
+
+```
+sql/
+  01_data_cleaning.sql
+  02_kpi_analysis.sql
+  03_data_validation.sql
+
+reports/
+  Dashboard-analisis_financiero_adventureworks.pdf
+```
+
+---
+
+# 📚 Habilidades demostradas
+
+Este proyecto demuestra habilidades clave para un **Data Analyst**:
+
+* análisis financiero con SQL
+* modelado de datos relacional
+* limpieza y preparación de datos
+* cálculo de métricas de negocio
+* control de calidad de datos
+* comunicación de insights
+
