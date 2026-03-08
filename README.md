@@ -36,3 +36,11 @@ El director financiero busca responder dos preguntas centrales:
 - Cálculo KPIs financieros ( Beneficio Bruto, Margen y ROI ).
 - Validación de resultados y QA.
 - Preparación de outputs y resumen ejecutivo en formato CFI en Google Drive.
+
+**Resultados**
+## Dashboard
+
+![Dashboar de AdventureWorks ](dashboard_preview.png)
+
+Puedes descargar el dashboard aquí:
+[Descargar dashboard](Dashboard-analisis_financiero_adventureworks.pdf)
