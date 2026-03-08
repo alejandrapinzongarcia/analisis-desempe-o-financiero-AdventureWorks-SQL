@@ -56,16 +56,17 @@ Pero aún nos falta una pieza clave: ¿cuánto estamos gastando en campañas de 
 
 La idea es combinar lo que venden los países con lo que se invirtió en campañas, para ver la foto completa.
 
-
 Razonamiento:
 - Primero se calcula ingresos y costos por país/territorio.
 - Luego, se calcula cuánto se gastó en campañas por territorio.
 - Después, juntamos ambos mundos con un LEFT JOIN.
-- Y listo: ahora se compara ventas, costos y gasto en marketing lado a lado.
-Paso 3: Calcular Beneficio Bruto, Margen y ROI
-Ya tenemos ventas, costos y campañas. Ahora toca transformarlos en indicadores que hablan el idioma del negocio:
+- Y listo: ahora se comparan ventas, costos y gasto en marketing lado a lado.
 
-Beneficio Bruto (ganancia antes de marketing) → ¿cuánto sobra después de cubrir costos directos?
-Margen % (eficiencia de ventas) → ¿qué porcentaje de cada dólar vendido se queda como ganancia bruta?
-ROI % (retorno sobre campañas) → ¿qué tan rentable es cada peso invertido en marketing?
-Piensa en estas métricas como un zoom financiero: ingresos muestran tamaño, pero estas tres muestran qué tan buen negocio es cada mercado.
+Etapa 3 : Calcular Beneficio Bruto, Margen y ROI
+
+- Beneficio Bruto (ganancia antes de marketing) → ¿cuánto sobra después de cubrir costos directos?
+- Margen % (eficiencia de ventas) → ¿qué porcentaje de cada dólar vendido se queda como ganancia bruta?
+- ROI % (retorno sobre campañas) → ¿qué tan rentable es cada peso invertido en marketing?
+- En estas métricas como un zoom financiero: ingresos muestran tamaño, pero estas tres muestran qué tan buen negocio es cada mercado.
+
+
