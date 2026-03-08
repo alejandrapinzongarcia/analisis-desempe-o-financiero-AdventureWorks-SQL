@@ -34,3 +34,38 @@ LEFT JOIN productos_categorias AS pc
 LEFT JOIN territorios AS t
   ON v.clave_territorio = t.clave_territorio;
 
+**Calcular KPIs financieros**
+
+Primera etapa: Calcular ingresos y costos por país
+
+La tabla ventas_clean se utiliza como base para continuar con los siguientes pasos. 
+Se debe calcular el total de ingresos y costos en cada país. 
+
+Razonamiento:
+
+- Quiero ver cada país y territorio como una fila.
+- Para cada fila, sumar todo lo que entró (ingresos) y todo lo que gastamos (costos).
+- Mostrar como entero para hacer el valor más legible.
+- Y ordenar para ver primero los países más grandes en ventas.
+
+Etapa 2 : Agregar la inversión en campañas de marketing
+
+Ya contamos con el dato de cuánto entra (ingresos) y cuánto cuesta operar (costos).
+
+Pero aún nos falta una pieza clave: ¿cuánto estamos gastando en campañas de marketing?
+
+La idea es combinar lo que venden los países con lo que se invirtió en campañas, para ver la foto completa.
+
+
+Razonamiento:
+- Primero se calcula ingresos y costos por país/territorio.
+- Luego, se calcula cuánto se gastó en campañas por territorio.
+- Después, juntamos ambos mundos con un LEFT JOIN.
+- Y listo: ahora se compara ventas, costos y gasto en marketing lado a lado.
+Paso 3: Calcular Beneficio Bruto, Margen y ROI
+Ya tenemos ventas, costos y campañas. Ahora toca transformarlos en indicadores que hablan el idioma del negocio:
+
+Beneficio Bruto (ganancia antes de marketing) → ¿cuánto sobra después de cubrir costos directos?
+Margen % (eficiencia de ventas) → ¿qué porcentaje de cada dólar vendido se queda como ganancia bruta?
+ROI % (retorno sobre campañas) → ¿qué tan rentable es cada peso invertido en marketing?
+Piensa en estas métricas como un zoom financiero: ingresos muestran tamaño, pero estas tres muestran qué tan buen negocio es cada mercado.
